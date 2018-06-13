@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 
 var request = {
 
-    createPost: function(client){
+    createRequest: function(client){
 
         var port = process.env.PORT || 8000;
         var router = express.Router();
@@ -23,6 +23,7 @@ var request = {
                 console.log(data);
             });
         })
+
 
         app.use("/api", router);
         app.listen(port);

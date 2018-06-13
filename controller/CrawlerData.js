@@ -10,9 +10,8 @@ exports.data = function () {
     return new Promise(function (resolve, reject)  {
         JSDOM.fromURL("http://www.webtruyentranh.net/the-loai/the-loai-action-2.html", "").then(dom => {
             var datas = dom.window.document.getElementsByClassName("media-object");
-            var truyenInstance = null;
             for (var i = 0; i < datas.length; i++) {
-                truyenInstance = new Instance();
+                let truyenInstance = new Instance();
                 truyenInstance.setName = datas.item(i).getAttribute('alt');
                 truyenInstance.setUrl = datas.item(i).getAttribute('src');
                 truyenInstance.setImg = null;
