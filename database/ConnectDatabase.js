@@ -1,6 +1,5 @@
 var MongoClient = require('mongodb').MongoClient, assert = require('assert');
 var url = 'mongodb://localhost:27017/test';
-var data = require('../controller/CrawlerData');
 
 
 var data = {

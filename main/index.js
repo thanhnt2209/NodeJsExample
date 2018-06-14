@@ -7,8 +7,11 @@ async function main() {
     var client = await db.connectData();
     let mydb = client.db('test');
     let collection = mydb.collection("user");
-    let mangas = await crawler.crawler.data();
-    await helper.add(collection, mangas);
+    let mangas = null;
+    await crawler.crawler.data(function (data) {
+        mangas = data;
+        helper.add(collection, mangas);
+    });
     requestData.createRequest(client);
 }
 

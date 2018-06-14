@@ -6,8 +6,8 @@ const Instance = require("../model/Truyen")
 var arrayManga = [];
 
 
-exports.data = function () {
-    return new Promise(function (resolve, reject)  {
+exports.data = async function (callback) {
+    // return new Promise(function (resolve, reject)  {
         JSDOM.fromURL("http://www.webtruyentranh.net/the-loai/the-loai-action-2.html", "").then(dom => {
             var datas = dom.window.document.getElementsByClassName("media-object");
             for (var i = 0; i < datas.length; i++) {
@@ -17,9 +17,9 @@ exports.data = function () {
                 truyenInstance.setImg = null;
                 arrayManga.push(truyenInstance);
             }
-            console.log(JSON.stringify(arrayManga));
-            resolve(arrayManga);
+            callback(arrayManga);
+            // resolve(arrayManga);
 
-        }).catch(reject);
-    })
+        }).catch();
+    // })
 }
